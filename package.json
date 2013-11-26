@@ -4,6 +4,7 @@
   "description": "bringing sounds to hipchat via hubot and sockets maybe",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
     "test": "test"
   },
   "repository": {
@@ -14,5 +15,10 @@
   "license": "BSD",
   "bugs": {
     "url": "https://github.com/llkats/soundspaces/issues"
+  },
+  "dependencies": {
+    "express": "~3.4.x",
+    "jade": "*",
+    "less-middleware": "*"
   }
 }
