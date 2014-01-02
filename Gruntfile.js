@@ -72,6 +72,16 @@ module.exports = function(grunt) {
       server: {
         file: 'app.js'
       }
+    },
+    nodemon: {
+      dev: {
+        options: {
+          file: 'app.js',
+          env: {
+            PORT: '3001'
+          }
+        }
+      }
     }
   });
 
@@ -82,10 +92,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-develop');
+  grunt.loadNpmTasks('grunt-nodemon');
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
 
   grunt.registerTask('default', ['develop']);
+
+  grunt.registerTask('serve', ['nodemon']);
 
 };
