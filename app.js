@@ -10,6 +10,8 @@ var path = require('path');
 
 var app = express();
 
+var io = require('socket.io').listen(app.listen(app.get('port')));
+
 // all environments
 app.set('port', process.env.PORT || 3001);
 app.set('views', path.join(__dirname, 'views'));
@@ -31,6 +33,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.post('/play', function (req, res) {
   console.log(req.body);
+  io.sockets.emit('newsound', { sound: req.body });
   res.end();
 });
 
@@ -38,11 +41,4 @@ http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-var io = require('socket.io').listen(app.listen(app.get('port')));
 
-var socketClient = require('socket.io-client');
-var socket = socketClient.connect('https://localhost:3001');
-
-socket.on('message', function(data) {
-  io.sockets.emit('newsound', { sound: data });
-});
