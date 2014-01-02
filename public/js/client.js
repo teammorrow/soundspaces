@@ -4,6 +4,8 @@
 
   socket.on('newsound', function (data) {
 
+    alert('HAI');
+
   });
 
 });

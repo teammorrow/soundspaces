@@ -37,6 +37,7 @@ http.createServer(app).listen(app.get('port'), function(){
 });
 
 var io = require('socket.io').listen(app.listen(app.get('port')));
+
 var socketClient = require('socket.io-client');
 var socket = socketClient.connect('https://localhost:3001');
 
