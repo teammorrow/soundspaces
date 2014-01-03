@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:3002');
+var socket = io.connect('http://localhost:3001');
 
 socket.on('newsound', function (data) {
 
