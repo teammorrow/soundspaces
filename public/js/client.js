@@ -2,6 +2,7 @@ var socket = io.connect('http://localhost:3002');
 
 socket.on('newsound', function (data) {
 
+  // create the audio element and metadata children
   var audio = document.createElement('audio');
   audio.setAttribute('src', data.sound.sound_url);
   audio.setAttribute('controls', '');
@@ -15,10 +16,16 @@ socket.on('newsound', function (data) {
 
   var li = document.createElement('li');
 
+  // append everything to the dom
   li.appendChild(audio);
   p.appendChild(time);
   li.appendChild(p);
 
-  document.getElementById('sounds').appendChild(li);
+  var ul = document.getElementById('sounds');
+  var first = ul.firstChild;
+  ul.insertBefore(li, first);
+
+  // gray out old sounds
+  first.className = 'grayed';
 
 });

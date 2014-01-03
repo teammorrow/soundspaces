@@ -38,3 +38,6 @@ time {
   font-size: 12px;
   padding-right: 5px;
 }
+.grayed {
+  opacity: 0.5;
+}
