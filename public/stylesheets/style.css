@@ -1,6 +1,11 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #c0e1ee;
+  margin: 25px 0px 0px 50px;
+  font: 15px Helvetica, Arial, sans-serif;
+}
+h1 {
+  color: #e95a22;
+  font-face: Helvetica;
 }
 a {
   color: #00B7FF;
@@ -10,13 +15,24 @@ audio {
 }
 p {
   float: left;
+  line-height: 0px;
+  margin-left: 20px;
 }
 ul {
   clear: both;
   list-style-type: none;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 li {
   list-style-type: none;
   list-style: none;
+  float: left;
+  padding-right: 10px;
+}
+time {
+  font-style: italic;
+  font-size: 12px;
+  padding-right: 5px;
 }
