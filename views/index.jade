@@ -2,9 +2,9 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  h4 Welcome to #{title}
 
-  ul
+  ul#sounds
     li
       audio(src="http://iftl.pastfuture.com/sounds/baconpancakes.mp3", autoplay, controls)
-      p timestamp - name
+      p name &mdash; timestamp

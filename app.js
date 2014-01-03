@@ -10,7 +10,6 @@ var path = require('path');
 
 var app = express();
 
-var io = require('socket.io').listen(app.listen(app.get('port')));
 
 // all environments
 app.set('port', process.env.PORT || 3001);
@@ -29,6 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
+var io = require('socket.io').listen(app.listen(3002));
 
 app.get('/', routes.index);
 app.post('/play', function (req, res) {

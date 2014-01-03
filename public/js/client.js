@@ -1,13 +1,19 @@
-// (function() {
+var socket = io.connect('http://localhost:3002');
 
-  var socket = io.connect('http://localhost:3001');
+socket.on('newsound', function (data) {
 
-  console.log(socket, 'socket');
+  var audio = document.createElement('audio');
+  audio.setAttribute('src', data.sound.sound_url);
+  audio.setAttribute('controls', '');
+  audio.setAttribute('autoplay', '');
 
-  socket.on('newsound', function (data) {
+  var p = document.createElement('p');
+  p.innerHTML = data.sound.sound_name + ' &mdash; ' + data.sound.timestamp;
 
-    console.log('HAI');
+  var li = document.createElement('li');
+  li.appendChild(audio);
+  li.appendChild(p);
 
-  });
+  document.getElementById('sounds').appendChild(li);
 
-// });
+});
