@@ -2,6 +2,10 @@ var socket = io.connect('http://localhost:3002');
 
 socket.on('newsound', function (data) {
 
+  if (document.getElementById('loading') != null) {
+    document.body.removeChild(document.getElementById('loading'));
+  }
+
   // create the audio element and metadata children
   var audio = document.createElement('audio');
   audio.setAttribute('src', data.sound.sound_url);

@@ -4,7 +4,6 @@
  */
 
 var express = require('express');
-var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 
@@ -31,9 +30,12 @@ if ('development' == app.get('env')) {
 
 var io = require('socket.io').listen(app.listen(3002));
 
-app.get('/', routes.index);
+app.get('/', function(req, res) {
+  res.render('index', { title: 'welcome to soundspaces' });
+});
+
+
 app.post('/play', function (req, res) {
-  console.log(req.body);
   io.sockets.emit('newsound', { sound: req.body });
   res.end();
 });

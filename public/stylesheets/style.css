@@ -38,13 +38,18 @@ time {
   font-size: 12px;
   padding-right: 5px;
 }
-
 .grayed {
   opacity: 0.5;
 }
-span#loading {
+.grayed:hover {
+  opacity: 1;
+}
+#loading {
   font-size: 12px;
 }
-span#loadingtext {
+#loading img {
+  float: left;
+}
+#loading p {
   padding-left: 5px;
 }

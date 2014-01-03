@@ -48,12 +48,17 @@ time {
 
 .grayed {
   opacity: 0.5;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 #loading {
   font-size: 12px;
-}
-
-#loadingtext {
-  padding-left: 5px;
+  img {
+    float: left;
+  }
+  p {
+    padding-left: 5px;
+  }
 }
