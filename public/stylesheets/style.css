@@ -38,6 +38,13 @@ time {
   font-size: 12px;
   padding-right: 5px;
 }
+
 .grayed {
   opacity: 0.5;
+}
+span#loading {
+  font-size: 12px;
+}
+span#loadingtext {
+  padding-left: 5px;
 }

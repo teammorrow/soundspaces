@@ -26,6 +26,8 @@ socket.on('newsound', function (data) {
   ul.insertBefore(li, first);
 
   // gray out old sounds
-  first.className = 'grayed';
+  if (first != null) {
+    first.className = 'grayed';
+  }
 
 });
