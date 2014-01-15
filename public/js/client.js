@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:3001');
+var socket = io.connect('http://soundspaces.herokuapp.com/');
 
 socket.on('newsound', function (data) {
 
