@@ -1,5 +1,21 @@
 var socket = io.connect('http://soundspaces.herokuapp.com/');
 
+// retrieve saved volume from localstorage
+var localVol = localStorage['volume'] || 1,
+    slider = document.getElementById('fader');
+
+if (localVol != 1) {
+  slider.value = localVol;
+}
+
+var saveVolume = function() {
+  console.log('save', slider.value);
+  localStorage['volume'] = slider.value;
+};
+
+slider.addEventListener('change', saveVolume);
+
+
 socket.on('newsound', function (data) {
 
   if (document.getElementById('loading') != null) {
@@ -11,7 +27,7 @@ socket.on('newsound', function (data) {
   audio.setAttribute('src', data.sound.sound_url);
   audio.setAttribute('controls', '');
   audio.setAttribute('autoplay', '');
-  audio.volume = document.getElementById('fader').value;
+  audio.volume = slider.value;
 
   var p = document.createElement('p');
   p.innerHTML = data.sound.sound_name + ' &mdash; ';
