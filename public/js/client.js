@@ -11,7 +11,7 @@ socket.on('newsound', function (data) {
   audio.setAttribute('src', data.sound.sound_url);
   audio.setAttribute('controls', '');
   audio.setAttribute('autoplay', '');
-  audio.setAttribute('volume', document.getElementById('fader').value);
+  audio.volume = document.getElementById('fader').value;
 
   var p = document.createElement('p');
   p.innerHTML = data.sound.sound_name + ' &mdash; ';
