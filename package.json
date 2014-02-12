@@ -9,12 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/llkats/soundspaces.git"
+    "url": "git://github.com/teammorrow/soundspaces.git"
   },
   "author": "",
   "license": "BSD",
   "bugs": {
-    "url": "https://github.com/llkats/soundspaces/issues"
+    "url": "https://github.com/teammorrow/soundspaces/issues"
   },
   "dependencies": {
     "express": "~3.4.x",
