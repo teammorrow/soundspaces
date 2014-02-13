@@ -1,26 +1,19 @@
-
-/**
- * Module dependencies.
- */
-
 var express = require('express'),
   http = require('http'),
   path = require('path'),
   app = express(),
   server = app.listen(process.env.PORT || 3001),
-  io = require('socket.io').listen(server);
+  io = require('socket.io').listen(server),
+  moment = require('moment');
 
-// all environments
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(express.favicon());
-app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
-app.use(require('less-middleware')({ src: path.join(__dirname, 'public') }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'web')));
 
 // development only
 if ('development' == app.get('env')) {
@@ -32,6 +25,29 @@ app.get('/', function(req, res) {
 });
 
 app.post('/play', function (req, res) {
-  io.sockets.emit('newsound', { sound: req.body });
+  var payload = req.body;
+
+  if (typeof payload.sound == 'undefined') {
+    res.status(404);
+    res.send({err: 'Missing sound name.'});
+    res.send();
+    return;
+
+  } else if (typeof payload.url == 'undefined') {
+    res.status(404);
+    res.send({err: 'Missing sound name.'});
+    res.send();
+    return;
+  }
+
+  io.sockets.emit('newsound', {
+    play: {
+      sound: payload.sound,
+      url: payload.url,
+      timestamp: moment().format('l, h:mm:ss a'),
+      author: (typeof payload.author != 'undefined') ? payload.author : 'Unknown'
+    }
+  });
+
   res.end();
 });

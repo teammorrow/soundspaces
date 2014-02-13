@@ -22,16 +22,16 @@ socket.on('newsound', function (data) {
 
   // create the audio element and metadata children
   var audio = document.createElement('audio');
-  audio.setAttribute('src', data.sound.sound_url);
+  audio.setAttribute('src', data.play.url);
   audio.setAttribute('controls', '');
   audio.setAttribute('autoplay', '');
   audio.volume = slider.value;
 
   var p = document.createElement('p');
-  p.innerHTML = data.sound.sound_name + ' &mdash; ';
+  p.innerHTML = data.play.sound + ' &mdash; ';
 
   var time = document.createElement('time');
-  time.innerHTML = data.sound.date;
+  time.innerHTML = data.play.date;
 
   var li = document.createElement('li');
 

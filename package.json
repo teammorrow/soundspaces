@@ -4,7 +4,7 @@
   "description": "bringing sounds to hipchat via hubot and sockets maybe",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app/server.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,8 @@
     "jade": "*",
     "less-middleware": "*",
     "socket.io-client": "~0.9.16",
-    "socket.io": "~0.9.16"
+    "socket.io": "~0.9.16",
+    "moment": "~2.5.1"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
