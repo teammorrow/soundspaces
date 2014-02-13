@@ -5,7 +5,7 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: [
-          'public/stylesheets/style.less',
+          'app/web/css/style.less',
         ],
         tasks: ['less'],
         options: {
@@ -16,7 +16,7 @@ module.exports = function(grunt) {
     less: {
       development: {
         files: {
-          "public/stylesheets/style.css": "public/stylesheets/style.less"
+          "app/web/css/style.css": "app/web/css/style.less"
         }
       }
     },
