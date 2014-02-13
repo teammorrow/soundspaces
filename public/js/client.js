@@ -1,4 +1,4 @@
-var socket = io.connect('http://soundspaces.herokuapp.com/');
+var socket = io.connect('//');
 
 // retrieve saved volume from localstorage
 var localVol = localStorage['volume'] || 1,
@@ -15,9 +15,7 @@ var saveVolume = function() {
 
 slider.addEventListener('change', saveVolume);
 
-
 socket.on('newsound', function (data) {
-
   if (document.getElementById('loading') != null) {
     document.body.removeChild(document.getElementById('loading'));
   }
@@ -50,5 +48,4 @@ socket.on('newsound', function (data) {
   if (first != null) {
     first.className = 'grayed';
   }
-
 });
