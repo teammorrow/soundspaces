@@ -22,7 +22,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', function(req, res) {
-  res.render('index', { title: 'welcome to soundspaces' });
+  res.render('index', { title: 'soundspac.es' });
 });
 
 app.post('/play', function (req, res) {
