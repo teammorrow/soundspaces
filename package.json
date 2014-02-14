@@ -12,12 +12,12 @@
   },
   "contributors": [
     {
-      "name" : "Lydia Katsamberis",
-      "url" : "https://github.com/llkats"
+      "name": "Lydia Katsamberis",
+      "url": "https://github.com/llkats"
     },
     {
-      "name" : "Jon Ursenbach",
-      "url" : "https://github.com/jonursenbach"
+      "name": "Jon Ursenbach",
+      "url": "https://github.com/jonursenbach"
     }
   ],
   "license": "MIT",
@@ -30,7 +30,9 @@
     "less-middleware": "*",
     "socket.io-client": "~0.9.16",
     "socket.io": "~0.9.16",
-    "moment": "~2.5.1"
+    "moment": "~2.5.1",
+    "ejs": "~0.8.5",
+    "express-partials": "~0.2.0"
   },
   "devDependencies": {
     "grunt": "~0.4.2",

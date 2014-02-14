@@ -1,4 +1,5 @@
 var express = require('express'),
+  partials = require('express-partials'),
   http = require('http'),
   path = require('path'),
   app = express(),
@@ -7,7 +8,8 @@ var express = require('express'),
   moment = require('moment');
 
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
+app.use(partials());
 app.use(express.favicon());
 app.use(express.json());
 app.use(express.urlencoded());
@@ -40,8 +42,6 @@ app.post('/play', function (req, res) {
     res.send();
     return;
   }
-
-  console.log(payload);
 
   io.sockets.emit('newsound', {
     play: {
