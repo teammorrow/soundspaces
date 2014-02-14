@@ -41,6 +41,8 @@ app.post('/play', function (req, res) {
     return;
   }
 
+  console.log(payload);
+
   io.sockets.emit('newsound', {
     play: {
       sound: payload.sound,
