@@ -1,6 +1,6 @@
 {
   "name": "soundspaces",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "bringing sounds to hipchat via hubot and sockets maybe",
   "main": "index.js",
   "scripts": {
@@ -10,8 +10,17 @@
     "type": "git",
     "url": "git://github.com/teammorrow/soundspaces.git"
   },
-  "author": "",
-  "license": "BSD",
+  "contributors": [
+    {
+      "name" : "Lydia Katsamberis",
+      "url" : "https://github.com/llkats"
+    },
+    {
+      "name" : "Jon Ursenbach",
+      "url" : "https://github.com/jonursenbach"
+    }
+  ],
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/teammorrow/soundspaces/issues"
   },
