@@ -1,4 +1,4 @@
-var socket = io.connect('//');
+var socket = io.connect('http://soundspaces.herokuapp.com/');
 
 // retrieve saved volume from localstorage
 var localVol = localStorage['volume'] || 1,
