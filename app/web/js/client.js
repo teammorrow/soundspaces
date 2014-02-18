@@ -15,10 +15,6 @@ var saveVolume = function() {
 
 slider.addEventListener('change', saveVolume);
 
-/*socket.on('disconnect', function () {
-  alert('Oops, something happened and we lost your socket connection. Try refreshing?');
-});*/
-
 socket.on('newsound', function (data) {
   if (document.getElementById('loading') != null) {
     document.body.removeChild(document.getElementById('loading'));
