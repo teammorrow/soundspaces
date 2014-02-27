@@ -31,7 +31,7 @@ socket.on('newsound', function (data) {
   p.innerHTML = data.play.sound + ' &mdash; ';
 
   var time = document.createElement('time');
-  time.innerHTML = data.play.date;
+  time.innerHTML = data.play.timestamp;
 
   var li = document.createElement('li');
 
