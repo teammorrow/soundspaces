@@ -1,4 +1,5 @@
-var socket = io.connect('//');
+var socket = io.connect('//'),
+  roomKey = $('#sounds').data('roomKey');
 
 // retrieve saved volume from localstorage
 var localVol = localStorage['volume'] || 1,
@@ -15,9 +16,10 @@ var saveVolume = function() {
 
 slider.addEventListener('change', saveVolume);
 
-socket.on('newsound', function (data) {
-  if (document.getElementById('loading') != null) {
-    document.body.removeChild(document.getElementById('loading'));
+socket.on('newsound/' + roomKey, function (data) {
+  console.log(data);
+  if ($('#loading').length == 1) {
+    $('#loading').remove();
   }
 
   // create the audio element and metadata children
@@ -34,6 +36,7 @@ socket.on('newsound', function (data) {
   time.innerHTML = data.play.timestamp;
 
   var li = document.createElement('li');
+  li.className = 'list-group-item';
 
   // append everything to the dom
   li.appendChild(audio);

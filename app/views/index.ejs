@@ -1,13 +1,27 @@
-<h1>soundspac.es</h1>
+<div class="jumbotron">
+  <p class="lead">soundspaces lets you trigger sounds from your favorite chat client.</p>
+  <p class="buttons">
+    <a class="btn btn-lg btn-success create" href="#" role="button">Create a room</a>
+    <a class="btn btn-lg btn-success join" href="#" role="button">Join a room</a>
+  </p>
 
-<div id="volume-controls">
-  <label for="fader">Volume</label>
-  <input type="range" min="0" max="1" value="1" step=".05" id="fader" />
+  <div>
+    <form class="form-inline create hidden" role="form">
+      <div class="form-group">
+        <label class="sr-only" for="roomName">Room name</label>
+        <input type="text" class="form-control" id="roomName" placeholder="Room name">
+      </div>
+      <button type="submit" class="btn btn-primary">Create it</button>
+      <p class="text-danger hidden">A room name is required.</p>
+    </form>
+
+    <form class="form-inline join hidden" role="form">
+      <div class="form-group">
+        <label class="sr-only" for="roomKey">Room key</label>
+        <input type="text" class="form-control" id="roomKey" placeholder="Room key">
+      </div>
+      <button type="submit" class="btn btn-primary">Join it</button>
+      <p class="text-danger hidden">A room key is required.</p>
+    </form>
+  </div>
 </div>
-
-<div id="loading">
-  <img src="/img/loading.gif" />
-  <p>Waiting for sounds&hellip;</p>
-</div>
-
-<ul id="sounds"></ul>
