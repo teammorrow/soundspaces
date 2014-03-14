@@ -17,38 +17,25 @@ var saveVolume = function() {
 slider.addEventListener('change', saveVolume);
 
 socket.on('newsound/' + roomKey, function (data) {
-  console.log(data);
   if ($('#loading').length == 1) {
     $('#loading').remove();
   }
 
-  // create the audio element and metadata children
-  var audio = document.createElement('audio');
-  audio.setAttribute('src', data.play.url);
-  audio.setAttribute('controls', '');
-  audio.setAttribute('autoplay', '');
+  var sound = $('#sounds .sound.hidden').clone(),
+    audio = sound.find('audio');
+
+  audio.attr('src', data.play.url);
+  audio.attr('controls', '');
+  audio.attr('autoplay', '');
   audio.volume = slider.value;
 
-  var p = document.createElement('p');
-  p.innerHTML = data.play.sound + ' &mdash; ';
+  sound.find('.sound-name').text(data.play.sound);
+  sound.find('.sound-data time').text(data.play.timestamp);
+  sound.removeClass('hidden');
 
-  var time = document.createElement('time');
-  time.innerHTML = data.play.timestamp;
+  console.log(sound);
 
-  var li = document.createElement('li');
-  li.className = 'list-group-item';
+  sound.prependTo('#sounds');
 
-  // append everything to the dom
-  li.appendChild(audio);
-  p.appendChild(time);
-  li.appendChild(p);
-
-  var ul = document.getElementById('sounds');
-  var first = ul.firstChild;
-  ul.insertBefore(li, first);
-
-  // gray out old sounds
-  if (first != null) {
-    first.className = 'grayed';
-  }
+  $('#sounds .sound:not(.hidden):not(:first)').addClass('grayed');
 });

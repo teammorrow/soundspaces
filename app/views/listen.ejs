@@ -4,7 +4,12 @@
     <p>Waiting for sounds&hellip;</p>
   </div>
 
-  <ul id="sounds" class="list-group" data-room-key="<%- roomKey -%>">
-  </ul>
+  <div id="sounds" data-room-key="<%- roomKey -%>">
+    <div class="sound hidden">
+      <audio src="" controls="" autoplay=""></audio>
+      <div class="sound-data">
+        <span class="sound-name"></span> — <time></time>
+      </div>
+    </div>
+  </div>
 </div>
-
