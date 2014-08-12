@@ -1,7 +1,7 @@
 {
   "name": "soundspaces",
   "version": "0.1.0",
-  "description": "bringing sounds to hipchat via hubot and sockets maybe",
+  "description": "Bringing sounds to your favorite chat client via Hubot and Sockets.",
   "main": "index.js",
   "scripts": {
     "start": "node app/server.js"
@@ -35,10 +35,9 @@
     "express-partials": "~0.2.0"
   },
   "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-develop": "~0.2.2",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-nodemon": "~0.1.2",
-    "grunt-contrib-less": "~0.9.0"
+    "gulp": "^3.8.7",
+    "gulp-jshint": "^1.8.4",
+    "gulp-less": "^1.3.3",
+    "gulp-nodemon": "^1.0.4"
   }
 }

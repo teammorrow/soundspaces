@@ -2,7 +2,7 @@ var socket = io.connect('//'),
   roomKey = $('#sounds').data('roomKey');
 
 // retrieve saved volume from localstorage
-var localVol = localStorage['volume'] || 1,
+var localVol = localStorage.volume || 1,
     slider = document.getElementById('fader');
 
 if (localVol != 1) {
@@ -11,7 +11,7 @@ if (localVol != 1) {
 
 var saveVolume = function() {
   console.log('save', slider.value);
-  localStorage['volume'] = slider.value;
+  localStorage.volume = slider.value;
 };
 
 slider.addEventListener('change', saveVolume);

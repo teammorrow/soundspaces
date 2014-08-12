@@ -1,11 +1,11 @@
-var express = require('express'),
-  partials = require('express-partials'),
-  http = require('http'),
-  path = require('path'),
-  app = express(),
-  pkg = require(__dirname + '/../package.json'),
-  server = app.listen(process.env.PORT || 3001),
-  io = require('socket.io').listen(server);
+var express = require('express');
+var partials = require('express-partials');
+var http = require('http');
+var path = require('path');
+var app = express();
+var pkg = require(__dirname + '/../package.json');
+var server = app.listen(process.env.PORT || 3001);
+var io = require('socket.io').listen(server);
 
 app.configure(function () {
   app.set('views', path.join(__dirname, 'views'));
@@ -19,9 +19,7 @@ app.configure(function () {
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'web')));
   app.use(express.static(path.join(__dirname, 'components')));
-  app.use(require('less-middleware')({
-    src: path.join(__dirname, 'web')
-  }));
+  app.use(require('less-middleware')(path.join(__dirname, 'web')));
 });
 
 app.configure('development', function () {

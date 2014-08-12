@@ -8,7 +8,7 @@
     e.preventDefault();
 
     var roomName = $(this).find('#roomName').val();
-    if (roomName == '') {
+    if (roomName === '') {
       $(this).find('.form-group').addClass('has-error');
       $(this).find('.text-danger').removeClass('hidden');
       return false;
@@ -30,7 +30,7 @@
     e.preventDefault();
 
     var roomKey = $(this).find('#roomKey').val();
-    if (roomKey == '') {
+    if (roomKey === '') {
       $(this).find('.form-group').addClass('has-error');
       $(this).find('.text-danger').removeClass('hidden');
       return false;
